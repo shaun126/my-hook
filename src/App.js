@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import AllCustomHook from './AllCustomHook/AllCustomHook';
+import FilterJson from './FilterJson';
+// import SomeAppUsingUseReducerAndUseContext from './SomeAppUsingUseReducerAndUseContext/SomeAppUsingUseReducerAndUseContext';
+// import CustomHook from './CustomHook/CustomHook';
+// import Hooks from './Hooks/Hooks';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<FilterJson />
+			<hr />
+			<AllCustomHook />
+
+			{/* <SomeAppUsingUseReducerAndUseContext /> */}
+			{/* <CustomHook /> */}
+			{/* <Hooks /> */}
+		</div>
+	);
 }
 
 export default App;
