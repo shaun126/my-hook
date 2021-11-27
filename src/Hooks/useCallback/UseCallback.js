@@ -28,16 +28,10 @@ const UseCallback = () => {
 			<Title />
 
 			<ShowCount count={count1} title='Counter 1' />
-
-			<br />
 			<Button handleIncrement={incrementByOne}>Increment By One </Button>
 
-			<br />
-
 			<ShowCount count={count2} title='Counter 2' />
-			<br />
 			<Button handleIncrement={incrementByFive}>Increment By Five </Button>
-			<br />
 
 			<span>{isEven__orOdd ? 'Even' : 'Odd'}</span>
 		</div>

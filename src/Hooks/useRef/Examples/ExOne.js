@@ -1,16 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 
 const ExOne = () => {
-	const inputRef = useRef(null); // <- It returns an Object called current.
+	let inputRef = useRef(null); // <- It returns an Object called current.
 
 	useEffect(() => {
 		// console.log(inputRef.current);
 		inputRef.current.focus();
 	}, []);
 
+	const handleChange = (e) => {
+		inputRef = e.target.value;
+		// console.log(inputRef);
+	};
+
 	return (
 		<div>
-			<input ref={inputRef} type='text' placeholder='type something' />
+			<input ref={inputRef} type='text' onChange={handleChange} placeholder='type something' />
 		</div>
 	);
 };

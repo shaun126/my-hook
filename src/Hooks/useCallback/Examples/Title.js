@@ -5,8 +5,8 @@ const Title = () => {
 
 	return (
 		<div>
-			<h1>useCallback & useMemo</h1>
-			<h4>The main difference is that useMemo returns a memoized value and useCallback returns a memoized function</h4>
+			<h2>useCallback & useMemo</h2>
+			<p>The main difference is that useMemo returns a memoized value and useCallback returns a memoized function</p>
 		</div>
 	);
 };

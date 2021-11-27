@@ -12,8 +12,7 @@ const Time = () => {
 	}, []);
 
 	const tick = () => {
-		// console.log('Testing');
-
+		console.log('Testing');
 		setDate(new Date());
 	};
 	return (
@@ -21,6 +20,9 @@ const Time = () => {
 			<p>Time {date.toLocaleTimeString()}</p>
 			<button type='button' onClick={() => clearInterval(buttonRef.current)}>
 				Stop Timer
+			</button>
+			<button type='button' onClick={() => (buttonRef.current = setInterval(tick, 1000))}>
+				Start Timer
 			</button>
 		</div>
 	);

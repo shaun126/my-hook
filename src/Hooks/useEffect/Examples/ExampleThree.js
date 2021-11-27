@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ExampleThree = () => {
 	const [count, setCount] = useState(0);
-	const [date, setDate] = useState(new Date());
+	const [date, setDate] = useState();
 
 	useEffect(() => {
 		console.log('This will run once');
@@ -21,9 +21,10 @@ const ExampleThree = () => {
 	const addCount = () => {
 		setCount((prevCount) => prevCount + 1);
 	};
+
 	return (
 		<div>
-			<p>Time {date.toLocaleTimeString()}</p>
+			<p>Time {date?.toLocaleTimeString()}</p>
 			<br />
 			<p>{count}</p>
 			<button onClick={addCount}>Add Count</button>

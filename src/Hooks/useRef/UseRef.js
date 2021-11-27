@@ -6,9 +6,9 @@ import ExTwo from './Examples/ExTwo';
 const UseRef = () => {
 	return (
 		<div>
-			<h3>
+			<p>
 				useRef() only returns one item. It returns an Object called current. <br /> When we initialize useRef we set the initial value: useRef(0).
-			</h3>
+			</p>
 			<ExThree />
 			<br />
 			<ExTwo />
