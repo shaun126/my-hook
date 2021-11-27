@@ -8,6 +8,7 @@ const ExEightGetPost = () => {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
 			.then((data) => {
+				// console.log(data);
 				// console.log(data[0]);
 				// console.log(Object.keys(data[0]));
 
@@ -16,14 +17,15 @@ const ExEightGetPost = () => {
 					result: data,
 				});
 			})
-			.catch(() => {
-				dispatch({ type: 'ERROR' });
+			.catch((err) => {
+				dispatch({ type: err });
 			});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div>
 			{/* if loading true then show loading.... text else show data */}
+			<h4>Ex eight get post</h4>
 			{loading
 				? 'Loading......'
 				: post.map((item) => {

@@ -29,11 +29,17 @@ const ExFour = () => {
 	const handelIncrement = (val) => {
 		// console.log(val);
 
-		dispatch({ type: 'increment', value: val });
+		dispatch({
+			type: 'increment',
+			value: val,
+		});
 	};
 
 	const handleDecrement = (val) => {
-		dispatch({ type: 'decrement', value: val });
+		dispatch({
+			type: 'decrement',
+			value: val,
+		});
 	};
 
 	return (

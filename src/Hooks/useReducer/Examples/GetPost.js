@@ -15,10 +15,10 @@ const GetPost = () => {
 				setPost(data);
 				setError('');
 			})
-			.catch(() => {
+			.catch((err) => {
 				setLoading(false);
 				setPost({});
-				setError('There Was a problem');
+				setError('There Was a problem', err);
 			});
 	}, []);
 

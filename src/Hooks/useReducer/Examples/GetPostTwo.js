@@ -14,6 +14,7 @@ const reducer = (state, action) => {
 	switch (action.type) {
 		case 'SUCCESS':
 			return {
+				...state,
 				loading: false,
 				post: action.result,
 				error: '',
@@ -21,6 +22,7 @@ const reducer = (state, action) => {
 
 		case 'ERROR':
 			return {
+				...state,
 				loading: false,
 				post: [],
 				error: 'There was a problem',
@@ -37,17 +39,17 @@ const GetPostTwo = () => {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
 			.then((data) => {
+				// console.log(data);
 				// console.log(data[0]);
 				// console.log(Object.keys(data[0]));
 
 				dispatch({
-					// ...state,
 					type: 'SUCCESS',
 					result: data,
 				});
 			})
-			.catch(() => {
-				dispatch({ type: 'ERROR' });
+			.catch((err) => {
+				dispatch({ type: err });
 			});
 	}, []);
 

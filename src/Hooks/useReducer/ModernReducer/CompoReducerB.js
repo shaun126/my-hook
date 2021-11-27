@@ -7,9 +7,7 @@ const CompoReducerB = () => {
 	const { counter } = state;
 
 	const handleDecrement = (val) => {
-
 		dispatch({
-			...state,
 			type: 'DECREMENT',
 			value: val,
 		});

@@ -18,7 +18,7 @@ const ExOne = () => {
 
 	return (
 		<div style={{ border: '1px solid green' }}>
-			<h2>First Example: without using custom hook</h2>
+			<h4>First Example: without using custom hook</h4>
 			<p>Resize browser window to see the effect</p>
 
 			<h3 style={{ background: onSmallScreen ? 'green' : 'blue' }}>You are browsing on {onSmallScreen ? 'Small' : 'Large'} screen</h3>

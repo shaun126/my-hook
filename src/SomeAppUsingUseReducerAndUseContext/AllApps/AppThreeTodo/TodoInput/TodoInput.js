@@ -4,13 +4,17 @@ import TodoContext from '../context/TodoContext';
 
 const TodoInput = () => {
 	const [todo, setTodo] = useState('');
+	const [ids, setIds] = useState(1);
+
 	const { addTodo } = useContext(TodoContext);
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 
+		setIds((c) => c + 1);
+
 		const newTodo = {
-			id: Math.random(),
+			id: ids,
 			text: todo,
 			complete: false,
 		};
@@ -21,13 +25,13 @@ const TodoInput = () => {
 	};
 
 	const onChangeHandler = (e) => {
-		setTodo(e.target.value);
+		setTodo(() => e.target.value);
 	};
 
 	return (
 		<div>
-			<h3>useContext + useReducer To-Do List</h3>
-
+			<h4>useContext + useReducer To-Do List</h4>
+			{ids}
 			<form onSubmit={onSubmitHandler}>
 				<input type='text' value={todo} onChange={onChangeHandler} placeholder='Enter a Todo...' required />
 

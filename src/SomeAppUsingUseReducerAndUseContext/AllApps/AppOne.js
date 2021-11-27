@@ -6,6 +6,12 @@ const initialState = {
 
 const reducer = (state, action) => {
 	switch (action.type) {
+		case 'initCount':
+			return {
+				...state,
+				count: state.count + action.payload,
+			};
+
 		case 'increment':
 			return {
 				...state,
@@ -17,61 +23,68 @@ const reducer = (state, action) => {
 				...state,
 				count: state.count - action.value,
 			};
-		case 'initCount':
-			return {
-				...state,
-				count: state.count + action.payload,
-			};
+
 		default:
 			return state;
 	}
 };
 
 const AppOne = () => {
-	const [input, setInput] = useState(0);
+	const [input, setInput] = useState(0 || '');
 	const [{ count }, dispatch] = useReducer(reducer, initialState);
 
 	const handleNumber = (e) => {
-		setInput(parseInt(e.target.value));
+		setInput(() => parseInt(e.target.value));
 	};
 
 	const handleInit = () => {
-		dispatch({
-			type: 'initCount',
-			payload: input,
-		});
+		if (input === '') {
+			alert('type value plz');
+			dispatch({
+				type: 'initCount',
+				payload: 0,
+			});
+		} else {
+			dispatch({
+				type: 'initCount',
+				payload: input,
+			});
+		}
 	};
 
-	const handleIncrement = () => {
+	const handleIncrement = (val) => {
 		dispatch({
 			type: 'increment',
-			value: 5,
+			value: val,
 		});
 	};
-	const handleDecrement = () => {
+	const handleDecrement = (val) => {
 		dispatch({
 			type: 'decrement',
-			value: 5,
+			value: val,
 		});
 	};
 
 	return (
 		<div>
-			<h1>Reducer Example One</h1>
+			<h4>Reducer Example One:</h4>
 
 			<div>
 				<label>Start Count: </label>
-				<input type='number' onChange={handleNumber} value={input} />
+				<input type='number' onChange={handleNumber} value={input} required />
 				<br />
 				<br />
 				<button onClick={handleInit}>Initialize Counter</button>
 			</div>
 
 			<p>{count}</p>
+			<p>input: {input}</p>
 
-			<button onClick={handleIncrement}>Increment</button>
-			<button onClick={handleDecrement} disabled={count <= 0 ? true : false}>
-				Decrement
+			<button onClick={() => handleIncrement(5)} disabled={count <= 0 ? true : false}>
+				Increment by 5
+			</button>
+			<button onClick={() => handleDecrement(5)} disabled={count <= 0 ? true : false}>
+				Decrement by 5
 			</button>
 		</div>
 	);

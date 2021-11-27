@@ -10,7 +10,7 @@ const HomePage = () => {
 
 			<br />
 
-			{isAuth ? <button onClick={() => setIsAuth(false)}>LogOut</button> : <button onClick={() => setIsAuth(true)}>LogIn</button>}
+			<button onClick={() => setIsAuth(!isAuth)}>{isAuth ? 'LogOut' : 'LogIn'}</button>
 		</div>
 	);
 };

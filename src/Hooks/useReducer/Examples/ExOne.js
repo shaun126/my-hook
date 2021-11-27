@@ -16,12 +16,12 @@ const reducer = (state, action) => {
 };
 
 const ExOne = () => {
-	const [count, dispatch] = useReducer(reducer, initialState);
+	const [state, dispatch] = useReducer(reducer, initialState);
 	return (
 		<div style={{ border: '1px solid green' }}>
 			<h5>Ex One</h5>
-	
-			<p>Count : {count}</p>
+
+			<p>Count : {state}</p>
 
 			<button type='button' onClick={() => dispatch('increment')}>
 				Increment

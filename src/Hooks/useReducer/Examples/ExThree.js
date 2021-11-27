@@ -18,27 +18,33 @@ const reducer = (state, action) => {
 };
 
 const ExThree = () => {
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const [{ counter }, dispatch] = useReducer(reducer, initialState);
 
 	const handelIncrement = () => {
-		dispatch({ type: 'increment', value: 5 });
+		dispatch({
+			type: 'increment',
+			value: 5,
+		});
 	};
 
 	const handleDecrement = () => {
-		dispatch({ type: 'decrement', value: 3 });
+		dispatch({
+			type: 'decrement',
+			value: 3,
+		});
 	};
 
 	return (
 		<div style={{ border: '1px solid orange' }}>
 			<h5>Ex three: dispatch and changed by value</h5>
 
-			<p>Count : {state.counter}</p>
+			<p>Count : {counter}</p>
 
 			<button type='button' onClick={handelIncrement}>
 				Increment by 5
 			</button>
 
-			<button type='button' onClick={handleDecrement} disabled={state.counter <= 0 ? true : false}>
+			<button type='button' onClick={handleDecrement} disabled={counter <= 0 ? true : false}>
 				Decrement by 3
 			</button>
 		</div>

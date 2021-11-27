@@ -13,15 +13,17 @@ const TodoState = ({ children }) => {
 	const addTodo = (todo) => {
 		dispatch({
 			type: ADD_TODO,
-			payload: todo,
+			newTodo: todo,
 		});
 	};
+
+	console.log(todos);
 
 	// Toggle todo
 	const toggleTodo = (todoID) => {
 		dispatch({
 			type: TOGGLE_TODO,
-			payload: todoID,
+			newId: todoID,
 		});
 	};
 
@@ -37,7 +39,7 @@ const TodoState = ({ children }) => {
 		<div>
 			<TodoContext.Provider
 				value={{
-					todos: todos,
+					todos,
 					addTodo,
 					toggleTodo,
 					deleteTodo,

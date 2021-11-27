@@ -16,10 +16,11 @@ import ExEightGetPost from './Examples/ExEightGetPost';
 const UseReducer = () => {
 	return (
 		<div>
+
 			<StateProvider initialState={initialState} reducer={reducer}>
-				<ExEight />
-				{/* // we are fetching data too  */}
 				<ExEightGetPost />
+				{/* // we are fetching data too  */}
+				<ExEight />
 			</StateProvider>
 			<br />
 			<ExSeven />

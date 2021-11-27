@@ -1,6 +1,6 @@
 import React from 'react';
 // import UseReducer from './useReducer/UseReducer';
-import UseRef from './useRef/UseRef';
+// import UseRef from './useRef/UseRef';
 // import UseCallback from './useCallback/UseCallback';
 // import UseEffect from './useEffect/UseEffect';
 // import UseState from './UseState/UseState';
@@ -13,7 +13,7 @@ export default function Hooks() {
 			<br />
 
 			<h2 style={{ background: 'lightyellow' }}> useRef </h2>
-			<UseRef />
+			{/* <UseRef /> */}
 			<br />
 
 			<h2 style={{ background: 'lightblue' }}> useCallback & useMemo Part</h2>

@@ -7,16 +7,17 @@ const initialState = {
 const reducer = (state, action) => {
 	switch (action.type) {
 		case 'increment':
-			return { counter: state.counter + 1 };
-
+			return {
+				counter: state.counter + 1,
+			};
 		case 'decrement':
-			return { counter: state.counter - 1 };
-
+			return {
+				counter: state.counter - 1,
+			};
 		default:
 			return state;
 	}
 };
-
 const ExTwo = () => {
 	const [count, dispatch] = useReducer(reducer, initialState);
 
@@ -35,8 +36,6 @@ const ExTwo = () => {
 			<p>Count : {count.counter}</p>
 
 			<button type='button' onClick={handelIncrement}>
-				{' '}
-				{/* here we are simplify the code */}
 				Increment
 			</button>
 

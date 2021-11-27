@@ -1,37 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const FilterJson = () => {
 	const [jsonData, setJsonData] = useState([]);
+	let filterRef = useRef([]);
+
 	const [count, setCount] = useState(1);
 
+	// first putting all fetch data to jsonData state
 	useEffect(() => {
 		fetch(`https://jsonplaceholder.typicode.com/albums`)
 			.then((res) => res.json())
 			.then((data) => {
 				data.forEach((item) => {
-					if (item.userId === 1) {
-						setJsonData((prev) => [...prev, item]);
-					}
-					// setJsonData((prev) => [...prev, item]);
+					setJsonData((prev) => [...prev, item]);
 				});
 			});
+
+		// console.log('Testing');
+
+		return () => {
+			// console.log('clear previous rendering');
+			setJsonData([]);
+		};
 	}, [count]);
 
-	// useEffect(() => {
-	// 	jsonData?.filter((data) => data.userId === 1).map((item) => setJsonData(() => item));
-	// });
+	// now we are filtering
+	useEffect(() => {
+		filterRef.current = jsonData?.filter((data) => data.userId === count);
+		// console.log(filterRef.current);
+	}, [jsonData, count]);
 
 	console.log(jsonData);
+	// console.log(filterRef);
 
 	return (
 		<div>
 			<div>{count}</div>
-			<button onClick={() => setCount((c) => c + 1)}>click</button>
+			<button onClick={() => setCount((prev) => prev + 1)}>click</button>
 			{jsonData &&
-				jsonData.map((item) => (
+				filterRef.current?.map((item) => (
 					<div key={Math.random()}>
 						<p>
-							{item.id} - {item.title}
+							{item.userId} - {item.title}
 						</p>
 					</div>
 				))}

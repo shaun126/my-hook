@@ -9,7 +9,6 @@ const CompoReducerA = () => {
 
 	const handleIncrement = (val) => {
 		dispatch({
-			...state,
 			type: 'INCREMENT',
 			value: val,
 		});

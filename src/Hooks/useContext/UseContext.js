@@ -1,4 +1,3 @@
-import React from 'react';
+import { createContext } from 'react';
 
-export const counterContext = React.createContext();
-// export const counterContext = createContext();
+export const counterContext = createContext();
